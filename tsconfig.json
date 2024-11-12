@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "target": "es2022",
+        "module": "NodeNext",
+        "strictNullChecks": true,
+    },
+    "ts-node": {
+        "files": true
+    },
+}
