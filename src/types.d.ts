@@ -1,3 +1,26 @@
+interface Options {
+  forumName?: string;
+  posts?: {
+    title?: {
+      minLength?: number;
+      maxLength?: number;
+      regex?: string;
+    };
+    body?: {
+      minLength?: number;
+      maxLength?: number;
+      regex?: string;
+    };
+  };
+  threads?: {
+    title?: {
+      minLength?: number;
+      maxLength?: number;
+      regex?: string;
+    };
+  };
+}
+
 interface User {
   id: number;
   username: string;

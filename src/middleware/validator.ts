@@ -35,6 +35,7 @@ export default function validate(options: ValidationOptions) {
               });
               return;
             }
+            break;
           case "post":
             if (
               !parseInt(actualParam) ||
@@ -45,6 +46,7 @@ export default function validate(options: ValidationOptions) {
               });
               return;
             }
+            break;
         }
       }
     }
