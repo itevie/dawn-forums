@@ -16,6 +16,12 @@ export const options: Options = {
       maxLength: 50,
     },
   },
+  comments: {
+    body: {
+      minLength: 10,
+      maxLength: 2000,
+    },
+  },
 };
 
 app.listen(3000, async () => {

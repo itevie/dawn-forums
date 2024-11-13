@@ -4,7 +4,7 @@ import Ajv from "ajv/dist/jtd";
 const ajv = new Ajv();
 
 interface ValidationOptions {
-  params?: { [key: string]: "thread" | "post" };
+  params?: { [key: string]: "thread" | "post" | "user" };
   body?: any;
 }
 
@@ -43,6 +43,17 @@ export default function validate(options: ValidationOptions) {
             ) {
               res.status(404).send({
                 message: `Post ${actualParam} does not exist`,
+              });
+              return;
+            }
+            break;
+          case "user":
+            if (
+              !parseInt(actualParam) ||
+              !(await database.users.get(parseInt(actualParam)))
+            ) {
+              res.status(404).send({
+                message: `User ${actualParam} does not exist`,
               });
               return;
             }

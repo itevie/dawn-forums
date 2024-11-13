@@ -17,4 +17,12 @@ export default class DatabaseThreads {
       id
     );
   }
+
+  public async create(author: number, title: string): Promise<Thread> {
+    return (await this.database.connection.get(
+      "INSERT INTO threads (author, name) VALUES ($1, $2) RETURNING *;",
+      author,
+      title
+    )) as Thread;
+  }
 }

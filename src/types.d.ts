@@ -19,6 +19,13 @@ interface Options {
       regex?: string;
     };
   };
+  comments?: {
+    body?: {
+      minLength?: number;
+      maxLength?: number;
+      regex?: string;
+    };
+  };
 }
 
 interface User {

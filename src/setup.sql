@@ -39,9 +39,3 @@ CREATE TABLE IF NOT EXISTS comments (
 
 INSERT INTO users (username, password)
   VALUES ('system', '');
-
-INSERT INTO threads (name, author)
-  VALUES ('test', 1);
-
-INSERT INTO posts (thread, author, title, body)
-  VALUES (1, 1, 'hi', 'hi');

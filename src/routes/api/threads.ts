@@ -12,6 +12,12 @@ const createPostSchema = {
   },
 } as const;
 
+const createThreadSchema = {
+  properties: {
+    title: { type: "string" },
+  },
+} as const;
+
 export default function initThreads(): Router {
   const router = Router();
 
@@ -71,6 +77,16 @@ export default function initThreads(): Router {
       );
 
       res.status(200).send(post);
+    }
+  );
+
+  router.post<{}, any, JTDDataType<typeof createThreadSchema>>(
+    "/",
+    validate({ body: createThreadSchema }),
+    async (req, res) => {
+      const thread = await database.threads.create(1, req.body.title);
+
+      res.status(200).send(thread);
     }
   );
 
